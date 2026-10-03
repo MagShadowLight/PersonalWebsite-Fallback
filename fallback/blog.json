@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "displayName": "Website live",
+    "title": "Website is live now",
+    "body": "This website is now online. You can browse around the website and look at the project that I have made so far.",
+    "createdDate": "2026-06-30T03:18:05.342",
+    "updatedDate": "2026-06-30T03:18:05.342",
+    "visibility": 0,
+    "categoryId": 6,
+    "category": {
+      "id": 6,
+      "categoryName": "Website",
+      "parentCategoryId": 4
+    },
+    "blogsScreenshotId": 1,
+    "blogsScreenshot": {
+      "blogsScreenshotId": 1,
+      "path": "images/Website-20260630032528444.png",
+      "description": "Website",
+      "blogs": null
+    }
+  }
+]
