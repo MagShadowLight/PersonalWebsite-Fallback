@@ -1,6 +1,6 @@
 {
-	"name": "fallback-portfolio"
-	"main": "worker.js"
+	"name": "fallback-portfolio",
+	"main": "worker.js",
 	"compatibility_date": "2026-10-01",
 	"routes": [
 		{ "pattern": "magshadowlight.com/*", "zone_name": "magshadowlight.com" }
