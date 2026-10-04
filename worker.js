@@ -7,7 +7,7 @@ async function serveFallback(request, env, servedBy) {
 	const isBot = AI_BOTS.test(request.headers.get('user-agent'));
 
 
-	if ((url.pathname.startsWith('/api/') && down) || (url.pathname.startsWith('/api/') && isBot)) {
+	if ((url.pathname.startsWith('/api/'))) {
 		return new Response('{"error": "unavailable"}', {
 		status: 503,
 		headers: { 'content-type': 'application/json' },
@@ -34,10 +34,11 @@ export default {
 
 		try {
 			const res = await fetch(request, { signal: AbortSignal.timeout(4000) });
+			console.log($`Status: ${res.status}`)
 			res.headers.set('x-served-by', 'origin');
 			const down = [502, 503, 504].includes(res.status) || res.status >= 520;
 			if (down) {
-				throw new Exception();
+				
 			} else
 			{
 				const out = new Response(res.body, res);
