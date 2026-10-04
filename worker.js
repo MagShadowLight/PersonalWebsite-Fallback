@@ -21,7 +21,7 @@ async function serveFallback(request, env, servedBy) {
 
 export default {
 	async fetch(request, env) {
-		const isBot = AI_BOTS.test(request.headers.get('user-agent') || '');
+		const isBot = AI_BOTS.test(request.headers.get('user-agent'));
 		
 
 		if (isBot) {
