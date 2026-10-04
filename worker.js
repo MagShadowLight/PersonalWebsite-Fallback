@@ -2,8 +2,12 @@ const AI_BOTS = /ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|GPTBot|OAI-
 
 async function serveFallback(request, env, servedBy) {
 	const url = new URL(request.url);
+	const res = await fetch(request, { signal: AbortSignal.timeout(4000) });
+	const down = [502, 503, 504].includes(res.status) || res.status >= 520;
+	const isBot = AI_BOTS.test(request.headers.get('user-agent'));
 
-	if (url.pathname.startsWith('/api/')) {
+
+	if ((url.pathname.startsWith('/api/') && down) || (url.pathname.startsWith('/api/') && isBot) {
 		return new Response('{"error": "unavailable"}', {
 		status: 503,
 		headers: { 'content-type': 'application/json' },
