@@ -14,7 +14,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude '_site' --exclude 'worker.js' --exclude 'wrangler.jsonc'  ./ _site/
+          rsync -a --exclude '.git' --exclude '.github' --exclude '_site' ./ _site/
 
       - uses: cloudflare/wrangler-action@v3
         with:
