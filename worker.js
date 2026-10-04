@@ -1,5 +1,17 @@
+const AI_BOTS = /ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|GPTBot|OAI-SearchBot|ChatGPT-User|PerplexityBot|Perplexity-User|CCBot|Bytespider|Amazonbot|meta-externalagent|cohere-ai|Diffbot/i;
+
 export default {
 	async fetch(request, env) {
+		const isBot AI_BOTS.test(request.headers.get('user-agent) || '');
+
+		if (isBot) {
+			try {
+				const res = await fetch(request, { signal: AbortSignal.timeout(4000) });
+				const down = [502,503,504].Includes(res.status) || res.status >= 520;
+				if (!down) return res;
+			} catch (e) {}
+		}
+
 		try {
 			const res = await fetch(request);
 			const down = [502, 503, 504].includes(res.status) || res.status >= 520;
