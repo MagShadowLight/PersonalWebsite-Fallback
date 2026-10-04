@@ -35,7 +35,7 @@ export default {
 		try {
 			const res = await fetch(request, { signal: AbortSignal.timeout(4000) });
 			console.log(`Status: ${res.status}`)
-			res.headers.set('x-served-by', 'origin');
+			// res.headers.set('x-served-by', 'origin');
 			const down = [502, 503, 504].includes(res.status) || res.status >= 520;
 			if (down) {
 				return serveFallback(request, env, 'fallback', `origin-status-${res.status}`)
