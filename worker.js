@@ -8,7 +8,7 @@ export default {
 			try {
 				const res = await fetch(request, { signal: AbortSignal.timeout(4000) });
 				res.headers.set('x-served-by', 'origin');
-				const down = [502,503,504].Includes(res.status) || res.status >= 520;
+				const down = [502,503,504].includes(res.status) || res.status >= 520;
 				if (!down) return res;
 			} catch (e) {}
 		}
