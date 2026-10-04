@@ -10,7 +10,7 @@ async function serveFallback(request, env, servedBy) {
 	if ((url.pathname.startsWith('/api/'))) {
 		return new Response('{"error": "unavailable"}', {
 		status: 503,
-		headers: { 'content-type': 'application/json' },
+		headers: { 'content-type': 'application/json', 'x-served-by': servedBy },
 		});
 	}
 	if (request.method != 'GET' && request.method != 'HEAD') {
