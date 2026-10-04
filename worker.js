@@ -7,7 +7,7 @@ async function serveFallback(request, env, servedBy) {
 	const isBot = AI_BOTS.test(request.headers.get('user-agent'));
 
 
-	if ((url.pathname.startsWith('/api/') && down) || (url.pathname.startsWith('/api/') && isBot) {
+	if ((url.pathname.startsWith('/api/') && down) || (url.pathname.startsWith('/api/') && isBot)) {
 		return new Response('{"error": "unavailable"}', {
 		status: 503,
 		headers: { 'content-type': 'application/json' },
