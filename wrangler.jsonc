@@ -6,6 +6,9 @@
 		{ "pattern": "magshadowlight.com/*", "zone_name": "magshadowlight.com" }
 	],
 	"workers_dev": false,
+	"observability": {
+    		"enabled": false
+  	},
 	"assets" : {
 		"directory": "./_site",
 		"binding": "ASSETS",
