@@ -41,6 +41,8 @@ export default {
 				return out;
 			}
 		} catch (e) {}
+		return serveFallback(request, env, 'fallback')
+
 	}
 }
 
