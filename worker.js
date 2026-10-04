@@ -33,15 +33,16 @@ export default {
 			res.headers.set('x-served-by', 'origin');
 			const down = [502, 503, 504].includes(res.status) || res.status >= 520;
 			if (down) {
-				return serveFallback(request, env, 'fallback')
-			}
-			else {
+				throw new Exception();
+			} else
+			{
 				const out = new Response(res.body, res);
 				out.headers.set('x-served-by', 'origin');
 				return out;
 			}
-		} catch (e) {}
+		} catch (e) {
 		return serveFallback(request, env, 'fallback')
+		}
 
 	}
 }
