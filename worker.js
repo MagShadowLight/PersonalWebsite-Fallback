@@ -22,6 +22,7 @@ async function serveFallback(request, env, servedBy) {
 export default {
 	async fetch(request, env) {
 		const isBot = AI_BOTS.test(request.headers.get('user-agent') || '');
+		
 
 		if (isBot) {
 			return serveFallback(request, env, 'fallback-ai-bot');
@@ -31,14 +32,15 @@ export default {
 			const res = await fetch(request, { signal: AbortSignal.timeout(4000) });
 			res.headers.set('x-served-by', 'origin');
 			const down = [502, 503, 504].includes(res.status) || res.status >= 520;
-			if (!down) {
+			if (down) {
+				return serveFallback(request, env, 'fallback')
+			}
+			else {
 				const out = new Response(res.body, res);
 				out.headers.set('x-served-by', 'origin');
 				return out;
 			}
 		} catch (e) {}
-
-		return serveFallback(request, env, 'fallback');
 	}
 }
 
