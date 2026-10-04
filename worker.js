@@ -2,7 +2,7 @@ const AI_BOTS = /ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|GPTBot|OAI-
 
 export default {
 	async fetch(request, env) {
-		const isBot AI_BOTS.test(request.headers.get('user-agent) || '');
+		const isBot = AI_BOTS.test(request.headers.get('user-agent) || '');
 
 		if (isBot) {
 			try {
