@@ -1,15 +1,15 @@
 {
 	"name": "fallback-portfolio",
-	//"main": "worker.js",
+	"main": "worker.js",
 	"compatibility_date": "2026-10-01",
-	//"routes": [
-	//	{ "pattern": "magshadowlight.com/*", "zone_name": "magshadowlight.com" }
-	//],
-	"workers_dev": true,
+	"routes": [
+		{ "pattern": "magshadowlight.com/*", "zone_name": "magshadowlight.com" }
+	],
+	"workers_dev": false,
 	"assets" : {
 		"directory": "./_site",
-		//"binding": "ASSETS",
+		"binding": "ASSETS",
 		"not_found_handling": "single-page-application"
-		//"run_worker_first": true
+		"run_worker_first": true
 	}
 }
