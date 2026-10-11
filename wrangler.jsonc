@@ -15,7 +15,7 @@
 		"not_found_handling": "single-page-application",
 		"run_worker_first": [
 			"/*",
-			"!/*.js", "!/*.css", "!/*.png", "!/*.jpg", "!/*.jpeg",
+			"!/*.js", "!/*.css",
 			"!/*.webp", "!/*.svg", "!/*.ico", "!/*.woff", "!/*.woff2",
 			"!/fallback/*"
 		]
